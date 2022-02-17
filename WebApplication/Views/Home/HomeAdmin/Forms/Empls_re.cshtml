@@ -1,0 +1,74 @@
+﻿@{//@model WebApplication.Data.Entity.Employee 
+ }
+ @model WebApplication.Data.EntityHelp.EmployeeRe
+@{
+    int id = ViewBag.EmplId;
+    string lname = ViewBag.EmplLn;
+    string fname = ViewBag.EmplFn;
+    string mname = ViewBag.EmplMn;
+    string login = ViewBag.EmplLo;
+    string password = ViewBag.EmplPa;
+}
+<div style="justify-content: center; margin: 10px">Вы сейчас редактируете работника:</div>
+<table class="table_block">
+            <tr>
+                <th>Id</th>
+                <th>Фамилия</th>
+                <th>Имя</th>
+                <th>Отчество</th>
+                <th>Логин</th>
+                <th>Пароль</th>
+            </tr>
+                    <tr>
+                        <td>@id</td>
+                        <td>@lname</td>
+                        <td>@fname</td>
+                        <td>@mname</td>
+                        <td>@login</td>
+                        <td>@password</td>
+                    </tr>
+</table>
+<div style="justify-content: center; margin: 10px">Если хотите сохранить прежнее значение (например, сохранить имя или фамилию рабочего), то просто оставьте необхоимое поле пустым!</div>
+            <form asp-controller="home" asp-action="empls_edit" method="post" class="form_login">
+                    
+
+                    <div style="display: none" class="form_el">
+                        <input type="text" value="@id" asp-for="EmployeeId" class="border-class" readonly />
+                    </div>
+
+                   <div class="form_el">
+                        <label asp-for="Lname"></label>
+                        <input type="text" asp-for="Lname" class="border-class"/>
+                        <span asp-validation-for="Lname"></span>
+                    </div>
+
+                  <div class="form_el">
+                        <label asp-for="Fname"></label>
+                        <input type="text" asp-for="Fname" class="border-class"/>
+                        <span asp-validation-for="Fname"></span>
+                    </div>
+
+                    <div class="form_el">
+                        <label asp-for="Mname"></label>
+                        <input type="text" asp-for="Mname" class="border-class" placeholder="При наличии"/>
+                        <span asp-validation-for="Mname"></span>
+                    </div>
+
+
+                    <div class="form_el">
+                        <label asp-for="Login"></label>
+                        <input type="text" asp-for="Login" class="border-class"/>
+                        <span asp-validation-for="Login"></span>
+                    </div>
+
+                    <div class="form_el">
+                        <label asp-for="Password"></label>
+                        <input type="text" asp-for="Password" class="border-class"/>
+                        <span asp-validation-for="Password"></span>
+                    </div>
+
+                    <div class="form_el">
+                        <input type="submit" value="Внести изменения" />
+                    </div>
+                </form>
+

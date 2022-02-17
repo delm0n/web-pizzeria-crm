@@ -1,0 +1,101 @@
+﻿@model IEnumerable<WebApplication.Data.Entity.Addish>
+@{
+    string container = "";
+}
+        <table class="table_block_order">
+
+                <tr>
+                    <th>Закуска</th>
+                    <th>Масса</th>
+                    <th>Цена</th>
+                    <th>Количество</th>
+                </tr>
+
+                @foreach (var item in Model)
+    {
+        if (container == "" || container != @item.TypeAddish)
+        {
+            <tr style="background-color: white;">
+                <td colspan=4><h4 style="margin: 15px 0px 5px 15px;">@item.TypeAddish</h4></td>
+            </tr>
+                 <tr class="row_item">
+                    <td class="nameProduct">@item.AddishName</td>
+                    <td class="mass">@item.Mass</td>
+                    <td class="price">@item.Price</td>
+                    <td class="count">
+                        <div class="buttons_group">
+                            <button class="button_minus">-</button>
+                            <input class="input_beetw" type="number" value="0" disabled/>
+                            <button class="button_plus">+</button>
+                        </div>
+                    </td>
+            </tr>
+
+            container = @item.TypeAddish;
+        }
+
+        else
+        {
+            <tr class="row_item">
+                    <td class="nameProduct">@item.AddishName</td>
+                    <td class="mass">@item.Mass</td>
+                    <td class="price">@item.Price</td>
+                    <td class="count">
+                        <div class="buttons_group">
+                            <button class="button_minus">-</button>
+                            <input class="input_beetw" type="number" value="0" disabled/>
+                            <button class="button_plus">+</button>
+                        </div>
+                    </td>
+            </tr>
+
+            container = @item.TypeAddish;
+        }
+
+     }
+                
+
+            </table>
+
+
+            <form action="get_addish_order" method="post" class="form_readonly" >
+
+                <div>
+                    <label>
+                        Выбранные закуски:
+                    </label>
+                    <input name="totalOrder" class="big_input totalOrder" type="text" value='@Context.Session.GetString("clientAddishNames")' readonly="readonly" />
+                </div>
+
+                <div>
+                    <label>
+                        Общая масса в граммах:
+                    </label>
+                    <input name="totalMass" class="small_input totalMass" type="text" value="0" readonly="readonly" />
+                </div>
+
+                <div>
+                    <label>
+                        Общая стоимость в рублях:
+                    </label>
+                    <input name="totalPrice" class="small_input totalPrice" type="text" value="0.00" readonly="readonly" />
+                </div>
+
+                 <div style="margin: 0px" class="form_el">
+                        <input type="submit" value="Готово" />
+                    </div>
+            </form>
+
+            <div style="display: flex; flex-direction: column;">
+
+                <form asp-controller="home" asp-action="order_back" method="post">
+                     <input style="background-color: #e74c36" type="submit" value="Назад"  class="button_place" />
+                </form>
+
+            </div>
+            
+
+
+            @section ScriptPage {
+                    <script src="~/js/CalculAddishes.js"></script>
+                }

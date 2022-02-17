@@ -1,0 +1,25 @@
+﻿@model IEnumerable<WebApplication.Data.Entity.Employee>
+
+<table class="table_block">
+            <tr>
+                <th>Фамилия</th>
+                <th>Имя</th>
+                <th>Отчество</th>
+                <th>Логин</th>
+                <th>Пароль</th>
+                <th></th>
+            </tr>
+            @foreach (var item in Model)
+            { 
+                
+                    <tr>
+                        <td>@item.Lname</td>
+                        <td>@item.Fname</td>
+                        <td>@item.Mname</td>
+                        <td>@item.Login</td>
+                        <td>@item.Password</td>
+                        <td><a asp-action="empls_reactive" asp-controller="home" asp-route-id="@item.EmployeeId">Восстановить</a></td>
+                    </tr>
+               
+            }
+</table>

@@ -1,0 +1,20 @@
+﻿@model IEnumerable<WebApplication.Data.Entity.PizzaSize>
+
+<h1>Пицца: @ViewBag.NamePizza</h1>
+<table class="table_block">
+            <tr>
+                <th>Размер</th>
+                <th>Масса</th>
+                <th>Цена</th>
+            </tr>
+            @foreach (var item in Model)
+            { 
+                      
+                    <tr>
+                        <td>@item.SizeName</td>
+                        <td>@item.Mass</td>
+                        <td>@item.Price</td>
+                    </tr>
+               
+            }
+        </table>

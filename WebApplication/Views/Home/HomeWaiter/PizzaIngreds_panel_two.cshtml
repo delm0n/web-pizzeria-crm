@@ -1,0 +1,82 @@
+﻿<h1>@ViewBag.Name @ViewBag.Size @ViewBag.Mass грамм @ViewBag.Price рублей</h1>
+
+@model IEnumerable<WebApplication.Data.Entity.Ingredient>
+
+        <table class="table_block_order">
+                <tr>
+                    <th>Закуска</th>
+                    <th>Масса</th>
+                    <th>Цена</th>
+                    <th>Количество</th>
+                </tr>
+
+                @foreach (var item in Model)
+            { 
+                 <tr class="row_item">
+                    <td class="nameProduct">@item.IngredientName</td>
+                    <td class="mass">@item.Mass</td>
+                    <td class="price">@item.Price</td>
+                    <td class="count">
+                        <div class="buttons_group">
+                            <button class="button_minus">-</button>
+                            <input class="input_beetw" type="number" value="0"  disabled/>
+                            <button class="button_plus">+</button>
+                        </div>
+                    </td>
+                </tr>
+            }
+                
+
+            </table>
+
+
+            <form action="get_pizza_order_two" method="post" class="form_readonly" >
+
+                <div style="display: none">
+                    <input name="idInStatic"  type="number" value='@ViewBag.IdInStatic' readonly="readonly" />
+                </div>
+
+                <div>
+                    <label>
+                        Выбранная пицца:
+                    </label>
+                    <input name="totalPizzaName" class="mid_input totalPizzaName" type="text" value='@ViewBag.IdPizz @ViewBag.Name @ViewBag.Size' readonly="readonly" />
+                </div>
+
+                <div>
+                    <label>
+                        Выбранные ингредиенты:
+                    </label>
+                    <input name="totalOrder" class="big_input totalOrder" type="text" value='@ViewBag.Ingreds' readonly="readonly" />
+                </div>
+
+                <div>
+                    <label>
+                        Общая масса в граммах:
+                    </label>
+                    <input name="totalMass" class="small_input totalMass" type="text" value="@ViewBag.Mass" readonly="readonly" />
+                </div>
+
+                <div>
+                    <label>
+                        Общая стоимость в рублях:
+                    </label>
+                    <input name="totalPrice" class="small_input totalPrice" type="text" value="@ViewBag.Price" readonly="readonly" />
+                </div>
+
+                 <div style="margin: 0px" class="form_el">
+                        <input type="submit" value="Готово" />
+                    </div>
+            </form>
+
+            <div style="display: flex; flex-direction: column;">
+
+                <form asp-controller="home" asp-action="order_back" method="post">
+                     <input style="background-color: #e74c36" type="submit" value="Назад"  class="button_place" />
+                </form>
+
+            </div>
+
+            @section ScriptPage {
+                    <script src="~/js/CalculPizzas.js"></script>
+                }

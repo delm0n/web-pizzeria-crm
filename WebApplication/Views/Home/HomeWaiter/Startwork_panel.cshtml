@@ -1,0 +1,26 @@
+﻿<div style="text-align:center; justify-content: center; margin: 10px">Если клиент уже зарегистрирован, то просто введите его номер телефона, если нет, то введите ещё и имя</div>
+
+@model WebApplication.Data.Entity.Client;
+
+                <form asp-controller="home" asp-action="add_new_client" method="post" class="form_login">
+                    
+                    <div  class="form_el">
+                        <label asp-for="Telephone"></label>
+                        <input class="border-class" id="online_phone" asp-for="Telephone" type="tel"
+                        title="Например: 81234567890"
+                        pattern="[0-9]{11}">
+                        
+                        <span asp-validation-for="Telephone"></span>
+                    </div>
+
+                    <div class="form_el">
+                        <label asp-for="ClientName"></label>
+                        <input type="text" asp-for="ClientName" class="border-class"/>
+                        <span asp-validation-for="ClientName"></span>
+                    </div>
+
+                    <div class="form_el">
+            
+                        <input type="submit" value="Добавить" />
+                    </div>
+                </form>

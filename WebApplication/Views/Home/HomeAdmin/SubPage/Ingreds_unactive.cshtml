@@ -1,0 +1,21 @@
+﻿@model IEnumerable<WebApplication.Data.Entity.Ingredient>
+
+<table class="table_block">
+            <tr>
+                <th>Название</th>
+                <th>Масса</th>
+                <th>Цена</th>
+                <th></th>
+            </tr>
+            @foreach (var item in Model)
+            { 
+                
+                    <tr>
+                        <td>@item.IngredientName</td>
+                        <td>@item.Mass</td>
+                        <td>@item.Price</td>
+                        <td><a asp-action="ingreds_reactive" asp-controller="home" asp-route-id="@item.IngredientId">Восстановить</a></td>
+                    </tr>
+               
+            }
+        </table>

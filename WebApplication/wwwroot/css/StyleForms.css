@@ -1,0 +1,78 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600&display=swap');
+
+
+
+.title_h5 {
+    display: flex;
+    justify-content: center;
+    font-weight: 500;
+}
+
+span {
+    color: #e74c34;
+    font-size: 13px
+}
+
+.form_el {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 400;
+    border: 0;
+    margin: 10px;
+    display: flex;
+    flex-direction: column;
+}
+
+    .form_el input[type="text"], .form_el input[type="password"],
+    #online_phone {
+        height: 25px;
+        width: 186px;
+        border-radius: 2px;
+        font-weight: 400;
+        color: #272f40;
+    }
+
+
+.form_login {
+    margin-top: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+
+.form_el input[type="submit"] {
+    background-color: #4ebd64;
+    padding: 10px;
+    width: 186px;
+    border-radius: 5px;
+    cursor: pointer;
+    border: 0 none;
+    color: white;
+    transition: all 0.4s ease 0s;
+    margin-top: 20px;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 500;
+}
+
+    .form_el input[type="submit"] :hover {
+        background-color: #3e9950;
+    }
+
+
+.border-class {
+    border: 1px gray solid;
+}
+
+.input-validation-error {
+    border: 1px #e74c34 solid;
+}
+
+
+

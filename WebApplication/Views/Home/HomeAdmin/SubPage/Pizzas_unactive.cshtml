@@ -1,0 +1,19 @@
+﻿@model IEnumerable<WebApplication.Data.Entity.PizzaInMenu>
+
+<table class="table_block">
+            <tr>
+                <th>Название</th>
+                <th>Состав:</th>
+                <th></th>
+            </tr>
+            @foreach (var item in Model)
+            { 
+                
+                    <tr>
+                        <td>@item.PizzaInMenuName</td>
+                        <td>@item.Components</td>
+                        <td><a asp-action="pizzas_reactive" asp-controller="home" asp-route-id="@item.PizzaInMenuId">Восстановить</a></td>
+                    </tr>
+               
+            }
+        </table>

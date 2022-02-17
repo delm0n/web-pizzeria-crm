@@ -1,0 +1,36 @@
+﻿@model IEnumerable<WebApplication.Data.Entity.ClientOrder>
+
+<div class="panel_container">
+
+    <table class="table_block">
+            <tr>
+                <th>Клиент</th>
+                <th>Официант</th>
+                <th>Заказ</th>
+                <th>Масса</th>
+                <th>Цена</th>
+            </tr>
+            @foreach (var item in Model)
+            { 
+                
+                    <tr>
+                        <td>@item.Telephone</td>
+                        <td>@item.NameWaiter</td>
+                        <td style="width: 320px">
+                            <div class="row_text">
+                                <div class="text_order">@item.TextOrder</div>
+                                <button class="text_more">+</button>
+                            </div>
+                        </td>
+                        <td>@item.LastMass</td>
+                        <td>@item.LastPrice</td>
+                    </tr>
+               
+            }
+        </table>
+
+</div>
+
+                @section ScriptPage {
+                    <script src="~/js/OrderText.js"></script>
+                }

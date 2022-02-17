@@ -1,0 +1,31 @@
+﻿@model WebApplication.Data.Entity.Ingredient;
+
+                <form asp-controller="home" asp-action="add_new_ingred" method="post" class="form_login">
+                    
+                    <div  class="form_el">
+                        <label asp-for="IngredientName"></label>
+                        <input type="text" asp-for="IngredientName" class="border-class"/>
+                        <span asp-validation-for="IngredientName"></span>
+                    </div>
+
+                    <div class="form_el">
+                        <label asp-for="Mass"></label>
+                        <input type="text" asp-for="Mass" class="border-class" pattern="[0-9]{2,}" title="Например: 10"/>
+                        <span asp-validation-for="Mass"></span>
+                    </div>
+
+                    <div class="form_el">
+                        <label asp-for="Price"></label>
+                        <input type="text" asp-for="Price" class="border-class check_number" pattern="^\d*(\.\d{0,2})?$" title="Например: 123.45" />
+                        <span asp-validation-for="Price"></span>
+                    </div>
+
+                    <div class="form_el">
+            
+                        <input type="submit" value="Добавить" />
+                    </div>
+                </form>
+
+                @section ScriptPage {
+                    <script src="~/js/PointPrice.js"></script>
+                }

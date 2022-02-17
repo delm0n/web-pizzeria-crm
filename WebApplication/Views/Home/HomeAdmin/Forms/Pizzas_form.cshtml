@@ -1,0 +1,84 @@
+﻿@model WebApplication.Data.EntityHelp.PizzaAdd;
+
+ <form asp-controller="home" asp-action="add_new_pizza" method="post" class="form_login">
+                    
+                    <div  class="form_el">
+                        <label asp-for="PizzaName"></label>
+                        <input type="text" asp-for="PizzaName" class="border-class"/>
+                        <span asp-validation-for="PizzaName"></span>
+                    </div>
+
+                    <div  class="form_el">
+                        <label asp-for="Components"></label>
+                        <input type="text" asp-for="Components" class="border-class"/>
+                        <span asp-validation-for="Components"></span>
+                    </div>
+
+                    <div class="form_el">
+                            <table class="table_block_pizza">
+                                <tr>
+                                    <th>Размер:</th>
+                                    <th>Масса:</th>
+                                    <th>Цена:</th>
+                                </tr>
+                
+                                <tr>
+                                    <td>Маленькая</td>
+                                    <td>
+                                        <div class="form_el">
+                                            <input type="text" asp-for="MassSmall" class="border-class" pattern="[0-9]{2,}" title="Например: 10"/>
+                                            <span asp-validation-for="MassSmall"></span>
+                                        </div>
+                                     </td>
+                                    <td>
+                                        <div class="form_el">
+                                            <input type="text" asp-for="PriceSmall" class="border-class check_number" pattern="^\d*(\.\d{0,2})?$" title="Например: 123.45" />
+                                            <span asp-validation-for="PriceSmall"></span>
+                                        </div>
+                                    </td>  
+                                </tr>
+
+                                <tr>
+                                    <td>Средняя</td>
+                                    <td>
+                                         <div class="form_el">
+                                            <input type="text" asp-for="MassMedium" class="border-class" pattern="[0-9]{2,}" title="Например: 10"/>
+                                            <span asp-validation-for="MassMedium"></span>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="form_el">
+                                            <input type="text" asp-for="PriceMedium" class="border-class check_number2" pattern="^\d*(\.\d{0,2})?$" title="Например: 123.45" />
+                                            <span asp-validation-for="PriceMedium"></span>
+                                        </div>
+                                    </td>  
+                                </tr>
+
+                                <tr>
+                                    <td>Большая</td>
+                                    <td>
+                                        <div class="form_el">
+                                            <input type="text" asp-for="MassBig" class="border-class" pattern="[0-9]{2,}" title="Например: 10"/>
+                                            <span asp-validation-for="MassBig"></span>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="form_el">
+                                            <input type="text" asp-for="PriceBig" class="border-class check_number3" pattern="^\d*(\.\d{0,2})?$" title="Например: 123.45" />
+                                            <span asp-validation-for="PriceBig"></span>
+                                        </div>
+                                    </td>  
+                                </tr>
+               
+                             </table>
+                    </div>
+
+                    <div class="form_el">
+            
+                        <input type="submit" value="Добавить" />
+                    </div>
+                </form>
+
+                @section ScriptPage {
+                    <script src="~/js/PointPrices.js"></script>
+                }

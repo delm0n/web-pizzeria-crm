@@ -1,0 +1,51 @@
+﻿@model IEnumerable<WebApplication.Data.EntityHelp.PizzaAndSize>
+@{
+    string container = "";
+}
+	<table class="table_block">
+            <tr>
+                <th>Размер</th>
+                <th>Масса</th>
+                <th>Цена</th>
+                <th></th>
+            </tr>
+
+            @foreach (var item in Model)
+            { 
+                if (container == "" || container != @item.PizzaInMenu.PizzaInMenuName)
+                {
+                    <tr style="background-color: white;">
+                        <td colspan=4><h4 style="margin: 15px 0px 0px 15px;">@item.PizzaInMenu.PizzaInMenuName</h4></td>
+                    </tr>
+
+                    <tr>
+                        <td>@item.PizzaSize.SizeName</td>
+                        <td>@item.PizzaSize.Mass</td>
+                        <td>@item.PizzaSize.Price</td>
+                        <td> <a asp-action="pizza_add_order" asp-controller="home" asp-route-id="@item.PizzaSize.PizzaSizeId">Добавить в заказ</a></td>
+                    </tr>
+
+                    container = @item.PizzaInMenu.PizzaInMenuName;
+                } 
+                else
+                {
+                    <tr>
+                        <td>@item.PizzaSize.SizeName</td>
+                        <td>@item.PizzaSize.Mass</td>
+                        <td>@item.PizzaSize.Price</td>
+                        <td> <a asp-action="pizza_add_order" asp-controller="home" asp-route-id="@item.PizzaSize.PizzaSizeId">Добавить в заказ</a></td>
+                    </tr>
+
+                    container = @item.PizzaInMenu.PizzaInMenuName;
+                }
+               
+            }
+        </table>
+
+        <div style="margin-top:20px; display: flex; flex-direction: column;">
+
+                <form asp-controller="home" asp-action="order_back" method="post">
+                     <input style="background-color: #e74c36" type="submit" value="Назад"  class="button_place" />
+                </form>
+
+            </div>

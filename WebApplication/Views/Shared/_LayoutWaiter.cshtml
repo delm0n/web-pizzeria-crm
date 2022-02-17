@@ -1,0 +1,75 @@
+﻿
+
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width">
+    <link href="~/css/StyleRest.css" rel="stylesheet" />
+    <link href="~/css/StyleForms.css" rel="stylesheet" />
+    <title>Waiter</title>
+    <style>
+
+        
+    </style>
+</head>
+<body>
+    <header class="_lheader container">
+        <div class="logo_place">
+            ЛОГОТИП
+        </div>
+
+        <div class="header_container_without_logo">
+
+            <form asp-controller="home" asp-action="logout" method="post" class="button_exit">
+                <input class="button_place" type="submit" value="Выход" />
+            </form>
+
+        </div>
+        
+        
+
+    </header>
+
+    <section class="_lsection">
+
+        <div style="position: relative; height:auto" class="order_hidden">
+            <div>Заказ клиента <span style="font-size: 15px">@Context.Session.GetString("clientName")</span></div>
+            <div>Телефон: <span style="font-size: 15px">@Context.Session.GetString("clientTel")</span></div>
+            <div style="margin-top: 15px"></div>
+                @if(@Context.Session.GetString("clientAddishNames") != null) 
+                {
+                   <div>Выбранные закуски: <span style="font-size: 15px">@Context.Session.GetString("clientAddishNames")</span></div>
+                   <div>Общая стоимость закусок: <span style="font-size: 15px">@Context.Session.GetString("clientAddishPrice") руб. </span></div>
+                   <div>Общая масса закусок: <span style="font-size: 15px">@Context.Session.GetString("clientAddishMass") г. </span></div>
+                }
+              <div style="margin-top: 15px"></div>
+                @if (@Context.Session.GetString("clientPizza") != null)
+                {
+                    <div>Выбранные пиццы: <span style="font-size: 15px">@Context.Session.GetString("clientPizza")</span></div>
+                    <div>Общая стоимость за пиццы: <span style="font-size: 15px">@Context.Session.GetString("clientPizzaPrice") руб.</span></div>
+                    <div>Масса пиццы: <span style="font-size: 15px">@Context.Session.GetString("clientPizzaMass") г.</span></div>
+                }
+              <div style="margin-top: 15px"></div>
+              <div style="margin-bottom: 112px">Официант: <span style="font-size: 15px">@Context.Session.GetString("employeeName")</span></div>
+
+              <div style="position: absolute; bottom: 0; left: 77px;">
+                <form asp-controller="home" asp-action="done_order" method="post">
+                     <input type="submit" value="Готово"  class="button_place" />
+                </form>
+
+                <form asp-controller="home" asp-action="clear_order" method="post" style="margin-top:20px; margin-bottom:20px">
+                     <input style="background-color: #e74c36" type="submit" value="Сбросить всё"  class="button_place" />
+                </form>
+              </div>
+        </div>
+
+        <div class="contentW">
+            @RenderBody()
+        </div>
+    </section>
+    
+    @RenderSection("ScriptPage", false)
+</body>
+</html>
+

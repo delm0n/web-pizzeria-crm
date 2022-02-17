@@ -1,0 +1,23 @@
+﻿
+<div style="display: flex; flex-direction: column;">
+
+    <form asp-controller="home" asp-action="addish_order" method="post">
+         <input type="submit" value="Выбрать закуски"  class="button_place" />
+    </form>
+
+    <form asp-controller="home" asp-action="pizza_order" method="post" style="margin-top:20px; margin-bottom:20px">
+         <input type="submit" value="Выбрать пиццу"  class="button_place" />
+    </form>
+
+    <button style="font-family: 'Montserrat', sans-serif; font-weight: 500;  margin-bottom:20px" class="show_order button_place">Заказ</button>
+
+    <form asp-controller="home" asp-action="new_client" method="post" >
+         <input style="background-color: #e74c36" type="submit" value="Новый клиент"  class="button_place" />
+    </form>
+
+</div>
+
+
+@section ScriptPage {
+    <script src="~/js/OrderToggle.js"></script>
+}

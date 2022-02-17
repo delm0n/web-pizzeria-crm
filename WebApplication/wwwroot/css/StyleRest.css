@@ -1,0 +1,299 @@
+﻿@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600&display=swap');
+
+body {
+    padding: 0px;
+    margin: 0px;
+    background-color: #272F40;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.container {
+    padding: 0px 20px;
+}
+
+._lheader {
+    display: flex;
+    align-items: center;
+    color: white;
+    padding: 30px 40px;
+}
+
+.logo_place, .nav_panel {
+    flex-basis: 200px;
+    flex-shrink: 0;
+}
+
+.header_container_without_logo {
+    display: flex;
+    justify-content: right;
+    align-items: center;
+    flex-grow: 1;
+    color: white;
+}
+
+.button_place {
+    background-color: #4ebd64;
+    padding: 10px;
+    width: 186px;
+    border-radius: 5px;
+    cursor: pointer;
+    border: 0 none;
+    color: white;
+    transition: all 0.4s ease 0s;
+}
+
+._lsection {
+    display: flex;
+    height: 100%;
+}
+
+.content {
+    flex-grow: 1;
+    background-color: white;
+    border-radius: 25px;
+    margin-right: 10px;
+    margin-bottom: 10px;
+    padding: 30px;
+}
+
+.contentW {
+    flex-grow: 1;
+    background-color: white;
+    border-radius: 25px;
+    margin: 10px;
+    padding: 30px;
+}
+
+
+.nav_panel {
+    padding: 30px 20px;
+    min-height: 500px;
+}
+
+.input_wrapper {
+    position: relative;
+    width: 100%;
+}
+
+.input_wrapper_active .input{
+   background-color: white;
+   color: #272f40;
+}
+
+.input_wrapper_active .input__icon {
+    fill: #272f40;
+}
+
+.input {
+    padding: 15px 0px;
+    padding-left:70px;
+    text-align: left;
+    background: none;
+    outline: none;
+    width: 100%;
+    border: 0;
+    color: white;
+    border: 1px #272f40 solid;
+    border-radius: 10px;
+    transition: all 0.2s;
+}
+
+.input__icon {
+    position: absolute;
+    width: auto;
+    height: 30px;
+    left: 20px;
+    padding: 8px;
+    fill: white;
+    pointer-events: none;
+}
+
+.input:hover {
+    border: 1px rgba(255, 255, 255, 0.5) solid;
+    transition: all 0.5s;
+}
+
+
+input {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 500;
+}
+
+
+.flex_wrapper {
+    margin-top: 20px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.buttons_place {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 500;
+    /* height: 100vh; */
+    /* position: relative; */
+}
+
+
+.table_wrap {
+    overflow-x: auto;
+    width: 100%;
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+
+.table_block, .table_block_pizza,
+.table_block_order{
+    width: 100%;
+}
+
+    .table_block th, .table_block td,
+    .table_block_pizza th, .table_block_pizza td,
+    .table_block_order th, .table_block_order td{
+        text-align: left;
+        padding: 5px;
+    }
+
+    .table_block th, .table_block tr:nth-child(odd),
+    .table_block_order th, .table_block_order tr:nth-child(odd){
+        background-color: #7180a02c;
+    }
+
+
+    .table_block tr:hover:not(:first-child),
+    .table_block_order tr:hover:not(:first-child) {
+        background-color: #7180a080;
+        transition: all 0.5s;
+    }
+
+
+    td a, td a:active {
+        text-decoration: none;
+        font-weight: 600;
+        color: black;
+    }
+
+
+.button_start_work {
+    margin-top: 20px;
+    display: flex;
+    justify-content: flex-start;
+}
+
+.order_hidden {
+    margin: 10px 0px 0px 0px;
+    border-radius: 25px;
+    min-height: 500px;
+    background-color: white;
+    width: 0px;
+    overflow: hidden;
+    color: white;
+    transition: all 0.8s ease 0s, color 0.2s ease 0s;
+}
+
+.order_hidden span {
+    color: white;
+}
+
+.order_active {
+    margin: 10px;
+    width: 300px;
+    padding: 20px;
+    color: black;
+}
+
+.order_active span {
+    color: #e74c34;
+}
+
+.buttons_group {
+    display: flex;
+    flex-wrap: nowrap;
+    flex-direction: row;
+}
+
+.input_beetw {
+    width: 30px;
+}
+
+.total_addish_block {
+    margin-top: 10px;
+    display: flex;
+    flex-wrap: nowrap;
+    flex-direction: column;
+}
+
+.buttons_group {
+    display: flex;
+    flex-wrap: nowrap;
+    flex-direction: row;
+}
+
+
+.input_beetw{
+    width: 40px;
+}
+
+.small_input {
+    width: 55px;
+    border: 0px;
+    font-weight: 600;
+}
+
+.big_input {
+    width: 100%;
+    height: 45px;
+}
+
+.mid_input {
+    width: 25%;
+    
+    border: 0px;
+    font-weight: 600;
+}
+
+.total_block {
+    display: flex;
+    flex-wrap: nowrap;
+    flex-direction: column;
+}
+
+.form_readonly {
+    padding: 20px 0px;
+}
+
+.form_readonly div {
+    margin-top: 10px;
+}
+
+.order_hidden div{
+    margin-top: 5px;
+}
+
+.row_text {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content:space-between;
+}
+
+.text_order {
+    max-height: 20px;
+    min-height: 0px;
+    overflow: hidden;
+    transition: all 0.3s ease 0s;
+}
+
+.text_more {
+    min-width: 30px;
+    text-align:center;
+}
+
+.text_order_more {
+    transition: all 3s ease 0s;
+    min-height: 50px;
+    max-height: 1000px;
+}

@@ -1,0 +1,19 @@
+﻿@model WebApplication.Data.Entity.Employee
+
+@{
+    string Fname = ViewBag.NameOne;
+    string Mname = ViewBag.NameTwo;
+
+}
+
+<div>Добро пожаловать в окно официанта, @Fname  @Mname  !</div>
+<div>Вы из пиццерии номер  @ViewBag.PizzIdBag </div>
+
+
+<div class="button_start_work"> 
+            <form asp-controller="home" asp-action="work_panel" method="post" >
+                <input type="submit" value="Начать работу"  class="button_place" />
+            </form>
+</div>
+
+               
