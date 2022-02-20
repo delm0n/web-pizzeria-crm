@@ -46,7 +46,7 @@
               <div style="margin-top: 15px"></div>
                 @if (@Context.Session.GetString("clientPizza") != null)
                 {
-                    <div>Выбранные пиццы: <span style="font-size: 15px">@Context.Session.GetString("clientPizza")</span></div>
+                    <div>Выбранные пиццы: <span style="font-size: 15px">@Context.Session.GetString("clientPizza").Remove(0, 2)</span></div>
                     <div>Общая стоимость за пиццы: <span style="font-size: 15px">@Context.Session.GetString("clientPizzaPrice") руб.</span></div>
                     <div>Масса пиццы: <span style="font-size: 15px">@Context.Session.GetString("clientPizzaMass") г.</span></div>
                 }
