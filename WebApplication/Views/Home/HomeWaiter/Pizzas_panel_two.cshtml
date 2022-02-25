@@ -1,4 +1,4 @@
-﻿@model List<string>
+﻿@model Dictionary<string, string>
 @{int index = 0;}
 
 <h1>Выбрано @Model.Count пицц(ы)</h1>
@@ -6,13 +6,16 @@
 <table class="table_block">
             <tr>
                 <th>Название</th>
+                <th>Ингредиенты</th>
+                <th></th>
                 <th></th>
             </tr>
-            @foreach (string pizza in Model)
+            @foreach (KeyValuePair<string, string>  pizza in Model)
             { 
                 
                     <tr>
-                        <td>@pizza</td>
+                        <td>@pizza.Key</td>
+                        <td>@pizza.Value</td>
                         <td><a asp-action="pizza_change" asp-controller="home" asp-route-id="@index">Внести изменения</a></td>
                         <td><a asp-action="pizza_delete" asp-controller="home" asp-route-id="@index">Убрать из заказа</a></td>
                     </tr>

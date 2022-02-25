@@ -48,6 +48,8 @@ if (document.querySelector('.totalOrder').value != '') {
         for (let i = 0; i < document.querySelectorAll('.nameProduct').length; i++) {
             if (document.querySelectorAll('.nameProduct')[i].textContent == key) {
                 document.querySelectorAll('.input_beetw')[i].value = what[key];
+
+                ColorVal(document.querySelectorAll('.input_beetw')[i]);
             }
         }
     }

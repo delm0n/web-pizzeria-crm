@@ -466,6 +466,7 @@ namespace WebApplication.Controllers
             return View("~/Views/Home/HomeAdmin/Pizzas_panel.cshtml",
                 await db.Pizzas
                 .Where(e => e.IsActive == true)
+                .OrderBy(e => e.PizzaInMenuName)
                 .ToListAsync());
         }
 
@@ -532,6 +533,7 @@ namespace WebApplication.Controllers
                         return View("~/Views/Home/HomeAdmin/Pizzas_panel.cshtml",
                         db.Pizzas
                         .Where(e => e.IsActive == true)
+                        .OrderBy(e => e.PizzaInMenuName)
                         .ToList());
                         
                     }
@@ -551,6 +553,7 @@ namespace WebApplication.Controllers
             return View("~/Views/Home/HomeAdmin/SubPage/Pizzas_unactive.cshtml",
                 await db.Pizzas
                 .Where(e => e.IsActive == false)
+                .OrderBy(e => e.PizzaInMenuName)
                 .ToListAsync());
 
         }
@@ -572,6 +575,7 @@ namespace WebApplication.Controllers
                     return View("~/Views/Home/HomeAdmin/Pizzas_panel.cshtml",
                 await db.Pizzas
                 .Where(e => e.IsActive == true)
+                .OrderBy(e => e.PizzaInMenuName)
                 .ToListAsync());
                 }
             }
@@ -736,7 +740,14 @@ namespace WebApplication.Controllers
             else //если мы выбралибольше одной пиццы появится панель Pizzas_panel_two с нашими выбранными пиццами
             //там появится возможность внести изменения в набор ингредиентов
             {
-                return View("~/Views/Home/HomeWaiter/Pizzas_panel_two.cshtml", staticPizzasList);
+                Dictionary<string, string> dic = new Dictionary<string, string>(); //словарь вывода
+                for (int i = 0; i < staticPizzasList.Count ; i++)
+                {
+                    dic.Add(staticPizzasList[i].Remove(0, 2), staticIngredsList[i].Trim(new char[] { '{', '}' }).Replace(",", ", "));
+                }
+
+                //return View("~/Views/Home/HomeWaiter/Pizzas_panel_two.cshtml", staticPizzasList);
+                return View("~/Views/Home/HomeWaiter/Pizzas_panel_two.cshtml", dic);
             }
         }
 

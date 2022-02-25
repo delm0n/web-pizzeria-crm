@@ -9,7 +9,7 @@
          <input type="submit" value="Выбрать пиццу"  class="button_place" />
     </form>
 
-    <button style="font-family: 'Montserrat', sans-serif; font-weight: 500;  margin-bottom:20px" class="show_order button_place">Заказ</button>
+    <button style="font-family: 'Montserrat', sans-serif; font-weight: 500;  margin-bottom:20px" class="show_order button_place">Показать заказ</button>
 
     <form asp-controller="home" asp-action="new_client" method="post" >
          <input style="background-color: #e74c36" type="submit" value="Новый клиент"  class="button_place" />
@@ -19,5 +19,5 @@
 
 
 @section ScriptPage {
-    <script src="~/js/OrderToggle.js"></script>
+    <script src="~/js/OrderClick.js"></script>
 }

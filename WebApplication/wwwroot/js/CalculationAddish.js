@@ -33,7 +33,7 @@ document.querySelector('.table_block_order').addEventListener('click', e => {
 
 
 let arrOrders = [];
-
+//если мы вносим изменения
 if (document.querySelector('.totalOrder').value != '') {
     let what = JSON.parse(document.querySelector('.totalOrder').value); //это объект
 
@@ -48,6 +48,9 @@ if (document.querySelector('.totalOrder').value != '') {
         for (let i = 0; i < document.querySelectorAll('.nameProduct').length; i++) {
             if (document.querySelectorAll('.nameProduct')[i].textContent == key) {
                 document.querySelectorAll('.input_beetw')[i].value = what[key];
+
+                ColorVal(document.querySelectorAll('.input_beetw')[i]);
+
             }
         }
     }

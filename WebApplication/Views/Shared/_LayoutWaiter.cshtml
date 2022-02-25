@@ -33,24 +33,30 @@
 
     <section class="_lsection">
 
-        <div style="position: relative; height:auto" class="order_hidden">
+        <div style="position: relative; height:auto; margin: 0px" class="order_hidden">
             <div>Заказ клиента <span style="font-size: 15px">@Context.Session.GetString("clientName")</span></div>
             <div>Телефон: <span style="font-size: 15px">@Context.Session.GetString("clientTel")</span></div>
-            <div style="margin-top: 15px"></div>
+            <div style="margin-top: 20px"></div>
                 @if(@Context.Session.GetString("clientAddishNames") != null) 
                 {
                    <div>Выбранные закуски: <span style="font-size: 15px">@Context.Session.GetString("clientAddishNames")</span></div>
-                   <div>Общая стоимость закусок: <span style="font-size: 15px">@Context.Session.GetString("clientAddishPrice") руб. </span></div>
+                   <div>Общая стоимость закусок: <span style="font-size: 15px">@Context.Session.GetString("clientAddishPrice") руб.</span></div>
                    <div>Общая масса закусок: <span style="font-size: 15px">@Context.Session.GetString("clientAddishMass") г. </span></div>
                 }
-              <div style="margin-top: 15px"></div>
-                @if (@Context.Session.GetString("clientPizza") != null)
+              <div style="margin-top: 20px"></div>
+                @if (@Context.Session.GetString("clientPizza") != null && @Context.Session.GetString("clientPizza") != " +  ")
                 {
                     <div>Выбранные пиццы: <span style="font-size: 15px">@Context.Session.GetString("clientPizza").Remove(0, 2)</span></div>
                     <div>Общая стоимость за пиццы: <span style="font-size: 15px">@Context.Session.GetString("clientPizzaPrice") руб.</span></div>
                     <div>Масса пиццы: <span style="font-size: 15px">@Context.Session.GetString("clientPizzaMass") г.</span></div>
                 }
-              <div style="margin-top: 15px"></div>
+              <div style="margin-top: 20px"></div>
+              @if (@Context.Session.GetString("clientPizza") != null && @Context.Session.GetString("clientPizza") != " +  " 
+                && @Context.Session.GetString("clientAddishNames") != null)
+                {
+                double lastprice = double.Parse(Context.Session.GetString("clientAddishPrice")) + double.Parse(Context.Session.GetString("clientPizzaPrice"));
+                <div>Итого: <span style="font-size: 15px">@Math.Round(lastprice, 2)  руб.</span></div>
+                }
               <div style="margin-bottom: 112px">Официант: <span style="font-size: 15px">@Context.Session.GetString("employeeName")</span></div>
 
               <div style="position: absolute; bottom: 0; left: 77px;">

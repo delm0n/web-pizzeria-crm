@@ -3,6 +3,7 @@
 <table class="table_block">
             <tr>
                 <th>Название</th>
+                <th>Тип закуски</th>
                 <th>Масса</th>
                 <th>Цена</th>
                 <th></th>
@@ -12,6 +13,7 @@
                 
                     <tr>
                         <td>@item.AddishName</td>
+                        <td>@item.TypeAddish</td>
                         <td>@item.Mass</td>
                         <td>@item.Price</td>
                         <td><a asp-action="addishes_reactive" asp-controller="home" asp-route-id="@item.AddishId">Восстановить</a></td>
